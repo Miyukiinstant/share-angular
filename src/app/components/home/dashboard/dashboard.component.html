@@ -1,0 +1,20 @@
+<p>
+    <mat-toolbar color="primary">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Contenuti</span>
+        <span class="example-spacer"></span>
+    </mat-toolbar>
+</p>
+
+<p *ngFor="let item of array">
+<mat-card >
+    <mat-card-title [innerText]="item.title"></mat-card-title>
+    <mat-card-content *ngIf="item.data.length <= 500" [innerText]="item.data"></mat-card-content>
+    <mat-card-actions *ngIf="item.data.length >= 500">
+        <button mat-button color="primary" (click)="copyToClipboard(item.data)" [matTooltip]="item.data">Copia {{item.title}}</button>
+    </mat-card-actions>
+</mat-card>
+</p>
+    
